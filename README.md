@@ -1,13 +1,4 @@
-# React + TypeScript + Vite
-
-<p align="center">
-  <br>
-  <img width="400" src="./src/assets/logo.svg" alt="logo of viterts repository">
-  <br>
-  <br>
-</p>
-
-# Vite FSD
+# FSD + React + TypeScript + Vite
 
 ## Features
 
