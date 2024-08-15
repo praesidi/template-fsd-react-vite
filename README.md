@@ -11,32 +11,32 @@
 
 ## Features
 
-- [FSD]
-- [pnpm]
+- [Feature Sliced Design](https://feature-sliced.design/)
 - [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/) - more strict
-- [React Router](https://reactrouter.com/) - with lazy-loading / code-splitting use case
-- [vitest]
-- [n18i]
-- [ESLint](https://tailwindcss.com/) - with [airbnb](https://github.com/airbnb/javascript) and really [powerful configuration](./.eslintrc)
-- [Prettier](https://prettier.io/) - with editor configuration [file](./.vscode/settings.json)
-- [tailwind]
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/)
+- [i18n](https://react.i18next.com/)
+- [ESLint](https://tailwindcss.com/)
+- [Vitest](https://tailwindcss.com/) [powerful configuration](./.eslintrc)
+- [Prettier](https://prettier.io/)
 - [dotenv (.env)](https://github.com/motdotla/dotenv)
 - [editorconfig](https://editorconfig.org/)
-- [dark theme]
-
+- [shadcn/ui](https://ui.shadcn.com/)
 
 ## Installation
 
 ```bash
 npx degit praesidi/fsdvite my-vitesse-app
 cd my-fsdvite-app
-pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
+pnpm i
+# If you don't have pnpm installed, run: npm install -g pnpm
 ```
 
 ## Checklist
 
-When you use this template, try follow the checklist to update your info properly
+Follow the checklist to update your info properly
 
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the title in `index.html`
@@ -48,102 +48,92 @@ When you use this template, try follow the checklist to update your info properl
 
 In the project directory, you can run:
 
-##### `yarn dev`
+##### `pnpm dev`
 
-##### `yarn build`
+##### `pnpm build`
 
-##### `yarn preview`
-
-##### `yarn lint`
-
-##### `yarn lint:ts`
-
-##### `yarn lint:eslint`
-
-##### `yarn format:ts`
-
-##### `yarn format`
-
-##### `yarn format:check`
-
-##### `yarn test`
+##### `pnpm preview`
 
 ## Development
 
 ### Folder Structure
 
-Folder structure should look like this;
+Folder structure of the template;
 
 ```
-src/
-├── App.test.tsx
-├── App.tsx
-├── main.tsx
-├── setupTests.ts
-├── test-utils.ts
-├── vite-env.d.ts
-├── assets
-│   ├── %image%.jpg
-│   └── %icon%.svg
-├── common
-│   ├── request.ts
-│   └── %util_name%.ts
-├── components
-│   ├── partials
-│   │   └── %ModuleName%
-│   │       ├── %ParticalName%.tsx
-│   │       ├── %ParticalName%.test.tsx
-│   │       └── %ParticalName%.scss
-│   └── shareds
-│       └── %ParticalName%
-│           ├── %ParticalName%.tsx
-│           ├── %ParticalName%.test.tsx
-│           └── %ParticalName%.scss
-├── routes
-│   ├── %ModuleName%
-│   │   ├── index.tsx
-│   │   ├── index.scss
-│   │   ├── %ModuleRouteName%
-│   │   │   ├── index.tsx
-│   │   │   ├── %ModuleRouteName%.test.tsx
-│   │   │   └── %ModuleRouteName%.scss
-│   │   └── %ModuleRouteName%
-│   │       ├── index.tsx
-│   │       ├── %ModuleRouteName%.test.tsx
-│   │       └── %ModuleRouteName%.scss
-│   └── index.tsx (router)
-├── store
-│   ├── slices
-│   │   ├── %module-name%.slice.ts
-│   │   └── %module-name%.slice.ts
-│   ├── hooks.ts
-│   └── index.ts
-└── styles
-    ├── global.scss
-    └── vendors.scss
+├── public
+│   ├── img
+│   │   ├── favicon.png
+│   │   └── logo.png
+│   └── locales
+│       ├── en
+│       │   └── translation.json
+│       └── ru
+│           └── translation.json
+│
+├── src
+│   ├── app
+│   │   ├── index.tsx
+│   │   ├── providers
+│   │   │   ├── index.ts
+│   │   │   └── providers.tsx
+│   │   ├── router.tsx
+│   │   └── styles
+│   │       └── index.css
+│   ├── entities
+│   ├── features
+│   │   ├── localization
+│   │   │   ├── index.ts
+│   │   │   └── ui
+│   │   │       └── changeLanguage.tsx
+│   │   └── theme
+│   │       ├── index.ts
+│   │       └── ui
+│   │           └── changeTheme.tsx
+│   ├── pages
+│   │   ├── dynamicRoute
+│   │   │   ├── index.ts
+│   │   │   └── ui
+│   │   │       └── dynamicRoute.tsx
+│   │   ├── homePage
+│   │   │   ├── index.ts
+│   │   │   └── ui
+│   │   │       └── homePage.tsx
+│   │   └── staticRoute
+│   │       ├── index.ts
+│   │       └── ui
+│   │           └── staticRoute.tsx
+│   ├── shared
+│   │   ├── i18n
+│   │   │   └── i18n.ts
+│   │   ├── lib
+│   │   │   └── utils.ts
+│   │   ├── theme
+│   │   │   ├── index.ts
+│   │   │   └── themeProvider.tsx
+│   │   └── ui
+│   │       ├── basicLayout
+│   │       │   └── basicLayout.tsx
+│   │       ├── button
+│   │       │   └── button.tsx
+│   │       ├── dropdown
+│   │       │   └── dropdown-menu.tsx
+│   │       ├── index.ts
+│   │       └── select
+│   │           └── select.tsx
+│   ├── vite-env.d.ts
+│   └── widgets
+│       ├── footer
+│       │   ├── index.ts
+│       │   └── ui
+│       │       └── footer.tsx
+│       └── header
+│           ├── index.ts
+│           └── ui
+│               └── header.tsx
 ```
-
-### State Management
-
-Redux, a state management library, was used for state management in the project. It is divided into redux slices to avoid complexity, ensure maintainability, and divide into domains. Use store (redux) for your global states, states that you will use at many different points, states that you will access and manage remotely.
-
-Go to the `src/store/slices` folder. Open or create the slice file of the module whose state you will manage. If you have created a new slice, you must define it in the `src/store/index.ts` file.
-
-### Style Management
-
-For global styling operations, there are global sass files under the `src/styles` folder. The `vendors.scss` you will use to add your dependencies and `global.scss` for your global styles are located here. You can also create global sass files here that you want to import in other sass files like `shareds.scss` or `variables.scss`.
-
-Components own style files should be located next to the `%componentname%.tsx` file like as `src/routes/Episode/List/List.scss`
 
 ### Linter / Eslint
 
-The project has a strong linter configuration to ensure consistency and maintainability. It generally follows the airbnb and prettier configuration.
-
-### Component Structure
-
-All components in the project are created as functional component. Continuity should be ensured by not using class components unless needed.
-
-## Contributors
-
-[Erdoğan BULUT](https://github.com/erdoganbulut/)
-[Ömer AYYILDIZ](https://github.com/omerayyildiz)
+The project has a strong linter configuration to ensure consistency and
+maintainability.
